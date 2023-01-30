@@ -1,19 +1,33 @@
-<!-- Copyright (c) 2022 Ralf Grawunder -->
+<!-- Copyright (c) 2022-2023 Ralf Grawunder -->
 
 # GitHooks: my Git hooks
 
 ## Setup
 
+### Universal
+
 Create the *hooks templatedir*.
 
 ```shell
-mkdir -p ~/.gittemplates/hooks
+mkdir -p /CUSTOM/PATH/hooks
 ```
 
-Announce the directory to **Git**.
+Announce the *templatedir* to **Git**.
 
 ```shell
-editor ~/.gitconfig
+editor /PATH/TO/YOUR/.gitconfig
+```
+
+```gitconfig
+[init]
+	templatedir = /CUSTOM/PATH
+```
+
+### Personal
+
+```shell
+mkdir -p ~/.gittemplates/hooks
+vim ~/.gitconfig
 ```
 
 ```gitconfig
@@ -21,9 +35,25 @@ editor ~/.gitconfig
 	templatedir = ~/.gittemplates
 ```
 
-### post-commit
+### Use post-commit
 
-Install **sl** (Steam Locomotive) and create a symlink.
+First install **sl** (Steam Locomotive).
+
+### Universal
+
+Now you could create a copy of the script.
+
+```shell
+cp ./post-commit.sh /CUSTOM/PATH/hooks/post-commit
+```
+
+The best way may be to create a symlink.
+
+```shell
+ln -s "$(readlink -m ./post-commit.sh)" /CUSTOM/PATH/hooks/post-commit
+```
+
+### Personal
 
 ```shell
 ln -s "$(readlink -m ./post-commit.sh)" ~/.gittemplates/hooks/post-commit
