@@ -1,6 +1,6 @@
 <!-- Copyright (c) 2022-2023 Ralf Grawunder -->
 
-# GitHooks: my Git hooks
+# GitHooks: my default Git hooks
 
 ## Setup
 
