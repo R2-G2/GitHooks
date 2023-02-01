@@ -15,7 +15,7 @@ mkdir -p /CUSTOM/PATH/hooks
 Announce the *templatedir* to **Git**.
 
 ```shell
-editor /PATH/TO/YOUR/.gitconfig
+editor /PATH/TO/.gitconfig
 ```
 
 ```gitconfig
@@ -35,25 +35,22 @@ vim ~/.gitconfig
 	templatedir = ~/.gittemplates
 ```
 
-### Use post-commit
+## Usage
 
-First install **sl** (Steam Locomotive).
+### post-commit
 
-### Universal
+First install **sl** (Steam Locomotive) and then create a symlink.
 
-Now you could create a copy of the script.
+After committing, a steam locomotive will cross the terminal, trying to prevent you from pushing to early. **Spoiler:**
+This won't always help!
 
-```shell
-cp ./post-commit.sh /CUSTOM/PATH/hooks/post-commit
-```
-
-The best way may be to create a symlink.
+#### Universal
 
 ```shell
 ln -s "$(readlink -m ./post-commit.sh)" /CUSTOM/PATH/hooks/post-commit
 ```
 
-### Personal
+#### Personal
 
 ```shell
 ln -s "$(readlink -m ./post-commit.sh)" ~/.gittemplates/hooks/post-commit
